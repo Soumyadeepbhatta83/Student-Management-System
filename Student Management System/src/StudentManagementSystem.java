@@ -3,11 +3,10 @@ import java.util.Scanner;
 
 public class StudentManagementSystem {
 
-    // All student objects are stored in this list (in memory only)
+
     private ArrayList<Student> students = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
-    // ---------------- Main menu loop ----------------
     public void start() {
         int choice;
 
@@ -51,14 +50,12 @@ public class StudentManagementSystem {
         System.out.println("6. Exit");
         System.out.println("=====================================");
     }
-
-    // ---------------- Feature 1: Add ----------------
+//-------------------Feature Methods-------------
     private void addStudent() {
         System.out.println("\n--- Add New Student ---");
 
         int id = readId("Enter Student ID (1-99999): ");
 
-        // Prevent duplicate IDs
         if (findStudentById(id) != null) {
             System.out.println("Error: A student with ID " + id + " already exists!");
             return;
@@ -74,7 +71,7 @@ public class StudentManagementSystem {
         System.out.println("Student added successfully!");
     }
 
-    // ---------------- Feature 2: Display all ----------------
+    
     private void displayAllStudents() {
         System.out.println("\n--- All Students ---");
 
@@ -90,7 +87,7 @@ public class StudentManagementSystem {
         System.out.println("Total students: " + students.size());
     }
 
-    // ---------------- Feature 3: Search ----------------
+    
     private void searchStudent() {
         System.out.println("\n--- Search Student ---");
 
@@ -106,7 +103,7 @@ public class StudentManagementSystem {
         }
     }
 
-    // ---------------- Feature 4: Update ----------------
+    
     private void updateStudent() {
         System.out.println("\n--- Update Student ---");
 
@@ -134,7 +131,7 @@ public class StudentManagementSystem {
         System.out.println("Student updated successfully!");
     }
 
-    // ---------------- Feature 5: Delete ----------------
+    
     private void deleteStudent() {
         System.out.println("\n--- Delete Student ---");
 
@@ -151,7 +148,6 @@ public class StudentManagementSystem {
 
     // ---------------- Helper methods ----------------
 
-    // Returns the Student with given ID, or null if not found
     private Student findStudentById(int id) {
         for (Student s : students) {
             if (s.getId() == id) {
@@ -166,7 +162,7 @@ public class StudentManagementSystem {
         System.out.println("---------------------------------------------");
     }
 
-    // Keeps asking until the user enters a valid whole number in range
+    
     private int readInt(String message, int min, int max) {
         while (true) {
             System.out.print(message);
@@ -184,7 +180,7 @@ public class StudentManagementSystem {
         }
     }
 
-    // Keeps asking until the user enters a valid decimal number in range
+    
     private double readDouble(String message, double min, double max) {
         while (true) {
             System.out.print(message);
@@ -206,7 +202,7 @@ public class StudentManagementSystem {
         return readInt(message, 1, 99999);
     }
 
-    // Keeps asking until the user enters a non-empty name
+    
     private String readName(String message) {
         while (true) {
             System.out.print(message);
